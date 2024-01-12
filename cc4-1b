@@ -14,6 +14,7 @@ public class DailyLifeAlgorithms {
             // Step 2
             System.out.println("Second step: Get out off bed");
             // Step 3
+            
             System.out.println("Third step: Fix bed");
             // Step 4
             System.out.println("Fourth step: Read two pages of a book");
@@ -27,6 +28,7 @@ public class DailyLifeAlgorithms {
             System.out.println("Eighth step: Brush teeth");
             // Step 9
             System.out.println("Nineth step: Put light makeup");
+            
             // Step 10
             System.out.println("Tenth step: Go to school");
         } else {
