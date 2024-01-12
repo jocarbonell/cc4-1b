@@ -1,0 +1,47 @@
+// Programmed by Jennylyn Carbonell
+
+import java.util.Scanner; 
+public class DailyLifeAlgorithms {
+    
+    public static void main(String[] args) {
+        Scanner myOBJ = new Scanner(System.in);
+        System.out.print("Time I wake up: ");
+        int wakeuptime = myOBJ.nextInt();
+        
+         if (wakeuptime <= 5) {
+            // Step 1
+            System.out.println("First step: Wake up");
+            // Step 2
+            System.out.println("Second step: Get out off bed");
+            // Step 3
+            System.out.println("Third step: Fix bed");
+            // Step 4
+            System.out.println("Fourth step: Read two pages of a book");
+            // Step 5
+            System.out.println("Fifth step: Take a shower");
+            // Step 6
+            System.out.println("Sixth step: Get dressed");
+            // Step 7
+            System.out.println("Seventh step: Eat breakfast"); 
+            // Step 8
+            System.out.println("Eighth step: Brush teeth");
+            // Step 9
+            System.out.println("Nineth step: Put light makeup");
+            // Step 10
+            System.out.println("Tenth step: Go to school");
+        } else {
+            // Step 1
+            System.out.println("First step: Wake up");
+            // Step 2
+            System.out.println("Second step: Get out off bed");
+            // Step 3
+            System.out.println("Third step: Take a shower");
+            // Step 4
+            System.out.println("Fourth step: Get dressed");
+            // Step 5
+            System.out.println("Fifth step: Brush teeth");
+            // Step 6
+            System.out.println("Sixth step: Go to school");
+      }
+    }
+}
