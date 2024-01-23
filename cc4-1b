@@ -12,61 +12,105 @@ public class DailyLifeAlgorithms {
          if (wakeuptime <= 5) {
             // Step 1
             System.out.println("First step: Wake up"); counter++;
+            
+            counter++;
             for (int i = 1; i <= 1; i++){counter++; counter++;
             System.out.println("Turn off alarm"); counter++;
             System.out.println("Lay down in bed"); counter++;
             System.out.println("Scroll through social medias"); counter++;
             
             // Step 2
-            System.out.println("Second step: Get out off bed"); counter++;
+            System.out.println("Second step: Drink water"); counter++;
             
             // Step 3
-            System.out.println("Third step: Fix bed"); counter++;
+            System.out.println("Third step: Brush my hair"); counter++;
             
             // Step 4
-            System.out.println("Fourth step: Read two pages of a book"); counter++;
+            System.out.println("Fourth step: Get out off bed"); counter++;
+            for (int l = 1; l <= 1; l++){counter++; counter++;
+            System.out.println("Stretch my body"); counter++;
+            System.out.println("Meditate"); counter++;
             
             // Step 5
-            System.out.println("Fifth step: Take a shower"); counter++;
+            System.out.println("Fifth step: Get out off bed"); counter++;
             
             // Step 6
-            System.out.println("Sixth step: Get dressed"); counter++;
+            System.out.println("Sixth step: Fix bed"); counter++;
             
             // Step 7
-            System.out.println("Seventh step: Eat breakfast"); counter++;
-            for (int i = 1; i <= 1; i++){counter++; counter++;
+            System.out.println("Seventh step: Read two pages of a book"); counter++;
+            
+            // Step 8
+            System.out.println("Eigth step: Take a shower"); counter++;
+            
+            // Step 9
+            System.out.println("Ninth step: Get dressed"); counter++;
+            
+            // Step 10
+            System.out.println("Tenth step: Eat breakfast"); counter++;
+            counter++;
+            for (int k = 1; k<= 1; k++){counter++; counter++;
             System.out.println("Choose what to eat"); counter++;
             System.out.println("Watch youtube or tiktok while I eat"); counter++;
             
-            // Step 8
-            System.out.println("Eighth step: Brush teeth"); counter++;
+            // Step 11
+            System.out.println("Twelfth step: Brush teeth"); counter++;
             
-            // Step 9
-            System.out.println("Nineth step: Put light makeup"); counter++;
+            // Step 12
+            System.out.println("Thirteenth step: Put light makeup"); counter++;
             
-            // Step 10
-            System.out.println("Tenth step: Go to school"); counter++;
-            
-        } else {
+            // Step 14
+            System.out.println("Fourteenth step: Go to school"); counter++;
+         
+        }}}} else {
             // Step 1
             System.out.println("First step: Wake up"); counter++;
             
+            counter++;
+            for (int i = 1; i <= 1; i++){counter++; counter++;
+            System.out.println("Turn off alarm"); counter++;
+            
             // Step 2
-            System.out.println("Second step: Get out off bed"); counter++;
+            System.out.println("Second step: Drink water"); counter++;
             
             // Step 3
-            System.out.println("Third step: Take a shower"); counter++;
+            System.out.println("Third step: Brush my hair"); counter++;
             
             // Step 4
-            System.out.println("Fourth step: Get dressed"); counter++;
+            System.out.println("Fourth step: Get out off bed"); counter++;
             
             // Step 5
-            System.out.println("Fifth step: Brush teeth"); counter++;
+            System.out.println("Fifth step: Get out off bed"); counter++;
             
             // Step 6
-            System.out.println("Sixth step: Go to school"); counter++;
+            System.out.println("Sixth step: Fix bed"); counter++;
+            
+            // Step 7
+            System.out.println("Seventh step: Take a shower"); counter++;
+            
+            // Step 8
+            System.out.println("Eigth step: Get dressed"); counter++;
+            
+            // Step 9
+            System.out.println("Ninth step: Eat breakfast"); counter++;
+            counter++;
+            for (int k = 1; k<= 1; k++){counter++; counter++;
+            System.out.println("Choose what to eat"); counter++;
+            
+            // Step 10
+            System.out.println("Tenth step: Brush teeth"); counter++;
+            
+            // Step 11
+            System.out.println("Eleventh step: Put light makeup"); counter++;
+            
+            // Step 12
+            System.out.println("Twelfth step: Go to school"); counter++;
+         
         }
             System.out.println(counter);
-      
+            }
+        }
     }
 }
+        
+    
