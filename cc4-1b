@@ -26,7 +26,8 @@ public class DailyLifeAlgorithms {
             System.out.println("Third step: Brush my hair"); counter++;
             
             // Step 4
-            System.out.println("Fourth step: Get out off bed"); counter++;
+            System.out.println("Fourth step: Get out off bed"); 
+            counter++;counter++;
             for (int l = 1; l <= 1; l++){counter++; counter++;
             System.out.println("Stretch my body"); counter++;
             System.out.println("Meditate"); counter++;
@@ -107,9 +108,10 @@ public class DailyLifeAlgorithms {
             System.out.println("Twelfth step: Go to school"); counter++;
          
         }
-            System.out.println(counter);
+            
             }
         }
+        System.out.println(counter);
     }
 }
         
