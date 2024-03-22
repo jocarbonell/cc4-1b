@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class AVL {
     class Node {
@@ -11,99 +11,94 @@ public class AVL {
         }
     }
 
-    private Node root;
+    Node root;
 
-    private int height(Node N) {
-        return (N == null) ? 0 : N.height;
+    int height(Node N) {
+        return N == null ? 0 : N.height;
     }
 
-    private Node rotateRight(Node y) {
-        Node x = y.left;
-        Node T2 = x.right;
+    int max(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
+    void updateHeight(Node n) {
+        n.height = max(height(n.left), height(n.right)) + 1;
+    }
+
+    Node rightRotate(Node y) {
+        Node x = y.left, T2 = x.right;
         x.right = y;
         y.left = T2;
-        y.height = height(y.left) + height(y.right) + 1;
-        x.height = height(x.left) + height(x.right) + 1;
+        updateHeight(y);
+        updateHeight(x);
         return x;
     }
 
-    private Node rotateLeft(Node x) {
-        Node y = x.right;
-        Node T2 = y.left;
+    Node leftRotate(Node x) {
+        Node y = x.right, T2 = y.left;
         y.left = x;
         x.right = T2;
-        x.height = height(x.left) + height(x.right) + 1;
-        y.height = height(y.left) + height(y.right) + 1;
+        updateHeight(x);
+        updateHeight(y);
         return y;
     }
 
-    private int getBalance(Node N) {
-        return (N == null) ? 0 : height(N.left) - height(N.right);
+    int getBalance(Node N) {
+        return N == null ? 0 : height(N.left) - height(N.right);
     }
 
-    public Node insert(Node node, int key) {
+    Node insert(Node node, int key) {
         if (node == null) return new Node(key);
-
         if (key < node.key) node.left = insert(node.left, key);
         else if (key > node.key) node.right = insert(node.right, key);
         else return node;
 
-        node.height = 1 + Math.max(height(node.left), height(node.right));
+        updateHeight(node);
         int balance = getBalance(node);
 
-        if (balance > 1 && key < node.left.key) return rotateRight(node);
-        if (balance < -1 && key > node.right.key) return rotateLeft(node);
+        if (balance > 1 && key < node.left.key) return rightRotate(node);
+        if (balance < -1 && key > node.right.key) return leftRotate(node);
         if (balance > 1 && key > node.left.key) {
-            node.left = rotateLeft(node.left);
-            return rotateRight(node);
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
         }
         if (balance < -1 && key < node.right.key) {
-            node.right = rotateRight(node.right);
-            return rotateLeft(node);
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
         }
         return node;
     }
 
-    public Node deleteNode(Node root, int key) {
+    Node deleteNode(Node root, int key) {
         if (root == null) return root;
-
         if (key < root.key) root.left = deleteNode(root.left, key);
         else if (key > root.key) root.right = deleteNode(root.right, key);
         else {
-            if (root.left == null || root.right == null) {
-                root = (root.left == null) ? root.right : root.left;
-            } else {
+            if (root.left == null || root.right == null) root = (root.left == null) ? root.right : root.left;
+            else {
                 Node temp = minValueNode(root.right);
                 root.key = temp.key;
                 root.right = deleteNode(root.right, temp.key);
             }
         }
-
         if (root == null) return root;
-
-        root.height = 1 + Math.max(height(root.left), height(root.right));
+        updateHeight(root);
         int balance = getBalance(root);
 
-        if (balance > 1 && getBalance(root.left) >= 0) return rotateRight(root);
+        if (balance > 1 && getBalance(root.left) >= 0) return rightRotate(root);
         if (balance > 1 && getBalance(root.left) < 0) {
-            root.left = rotateLeft(root.left);
-            return rotateRight(root);
+            root.left = leftRotate(root.left);
+            return rightRotate(root);
         }
-        if (balance < -1 && getBalance(root.right) <= 0) return rotateLeft(root);
+        if (balance < -1 && getBalance(root.right) <= 0) return leftRotate(root);
         if (balance < -1 && getBalance(root.right) > 0) {
-            root.right = rotateRight(root.right);
-            return rotateLeft(root);
+            root.right = rightRotate(root.right);
+            return leftRotate(root);
         }
         return root;
     }
 
-    private Node minValueNode(Node node) {
-        Node current = node;
-        while (current.left != null) current = current.left;
-        return current;
-    }
-
-    private void preOrder(Node node) {
+    void preOrder(Node node) {
         if (node != null) {
             System.out.print(node.key + " ");
             preOrder(node.left);
@@ -111,7 +106,7 @@ public class AVL {
         }
     }
 
-    private void inOrder(Node node) {
+    void inOrder(Node node) {
         if (node != null) {
             inOrder(node.left);
             System.out.print(node.key + " ");
@@ -119,7 +114,7 @@ public class AVL {
         }
     }
 
-    private void postOrder(Node node) {
+    void postOrder(Node node) {
         if (node != null) {
             postOrder(node.left);
             postOrder(node.right);
@@ -128,20 +123,20 @@ public class AVL {
     }
 
     public static void main(String[] args) {
-        AVL tree = new AVL();
+        AVL avl = new AVL();
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
-            System.out.print("1. Insert\n2. Delete\n3. Exit\nEnter your choice: ");
+            System.out.print("1. Insert\n2. Delete\n3. End\nEnter your choice: ");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     System.out.print("Enter the value to insert: ");
-                    tree.root = tree.insert(tree.root, scanner.nextInt());
+                    avl.root = avl.insert(avl.root, scanner.nextInt());
                     break;
                 case 2:
                     System.out.print("Enter the value to delete: ");
-                    tree.root = tree.deleteNode(tree.root, scanner.nextInt());
+                    avl.root = avl.deleteNode(avl.root, scanner.nextInt());
                     break;
                 case 3:
                     System.out.println("Exiting program.");
@@ -150,8 +145,6 @@ public class AVL {
                     System.out.println("Invalid choice.");
                     break;
             }
-            tree.inOrder(tree.root);
-            System.out.println();
         } while (choice != 3);
         scanner.close();
     }
